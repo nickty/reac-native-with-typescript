@@ -18,6 +18,8 @@ const styles = StyleSheet.create({
     borderColor: "rgba(0,0,0,0.1)",
     borderWidth: 1,
     marginBottom: 10,
+    padding: 10,
+    backgroundColor: "white",
   },
   name: {
     fontSize: 15,
