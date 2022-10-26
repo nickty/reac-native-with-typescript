@@ -5,11 +5,13 @@ import { NativeStackHeaderProps } from "@react-navigation/native-stack";
 import data from "../data.json";
 import { Workout } from "../types/data";
 import WorkoutItem from "../components/WorkoutItem";
+import MontserratText from "../components/styled/MontserratText";
 
 const HomeScreen = ({ navigation }: NativeStackHeaderProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Home Screen</Text>
+      <MontserratText>tetsdlkfjsdl</MontserratText>
       <FlatList
         data={data as Workout[]}
         renderItem={({ item }) => <WorkoutItem item={item} />}
