@@ -7,6 +7,6 @@ import PlannerScreen from "./screens/PlannerScreen";
 
 export default function App() {
   const isLoaded = useCachedResources();
-  console.log(isLoaded);
+  // console.log(isLoaded);
   return <Navigation />;
 }
