@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect } from "react";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 import { getWorkoutBySlug } from "../storage/workout";
+import { useWorkoutBySlug } from "../hooks/useWorkoutBySlug";
 
 type DetailParams = {
   route: {
@@ -14,16 +15,10 @@ type DetailParams = {
 type Navigation = NativeStackHeaderProps & DetailParams;
 
 const WorkoutDetailScreen = ({ navigation, route }: Navigation) => {
-  useEffect(() => {
-    async function getData() {
-      const workout = await getWorkoutBySlug(route.params.slug);
-      // console.log(workout);
-    }
-    getData();
-  }, []);
+  const workout = useWorkoutBySlug(route.params.slug);
   return (
     <View>
-      <Text> Slug - {route.params.slug}</Text>
+      <Text>{workout?.name}</Text>
     </View>
   );
 };
