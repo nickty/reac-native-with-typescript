@@ -1,5 +1,5 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import React, { useEffect } from "react";
+import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 import { getWorkoutBySlug } from "../storage/workout";
 import { useWorkoutBySlug } from "../hooks/useWorkoutBySlug";
@@ -16,11 +16,20 @@ type DetailParams = {
 type Navigation = NativeStackHeaderProps & DetailParams;
 
 const WorkoutDetailScreen = ({ navigation, route }: Navigation) => {
+  const [isModalVisisble, setModalVisible] = useState(false);
   const workout = useWorkoutBySlug(route.params.slug);
   return (
     <View style={{ padding: 20 }}>
       <Text style={{ fontSize: 20, marginBottom: 10 }}>{workout?.name}</Text>
-      <PressableText text="Cehck" onPress={() => alert("modal")} />
+      <PressableText text="Cehck" onPress={() => setModalVisible(true)} />
+      <Modal
+        visible={isModalVisisble}
+        transparent={false}
+        animationType="slide"
+      >
+        <Text>Hello</Text>
+      </Modal>
+      <PressableText text="Close" onPress={() => setModalVisible(false)} />
     </View>
   );
 };
