@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet, FlatList, Pressable } from "react-native";
 import React from "react";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack";
 
@@ -11,10 +11,14 @@ const HomeScreen = ({ navigation }: NativeStackHeaderProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Home Screen</Text>
-      <MontserratText style={{ fontSize: 30 }}>tetsdlkfjsdl</MontserratText>
+      {/* <MontserratText style={{ fontSize: 30 }}>tetsdlkfjsdl</MontserratText> */}
       <FlatList
         data={data as Workout[]}
-        renderItem={({ item }) => <WorkoutItem item={item} />}
+        renderItem={({ item }) => (
+          <Pressable onPress={() => navigation.navigate("WorkoutDetail")}>
+            <WorkoutItem item={item} />
+          </Pressable>
+        )}
         keyExtractor={(item) => item.slug}
       />
     </View>

@@ -9,6 +9,7 @@ import { Text } from "react-native";
 
 import { FontAwesome } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
+import WorkoutDetailScreen from "../screens/WorkoutDetailScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -28,7 +29,7 @@ function RootNavigator() {
         name="Root"
         component={BottomTabNavigator}
       />
-      {/* <Stack.Screen name="Planner" component={PlannerScreen} /> */}
+      <Stack.Screen name="WorkoutDetail" component={WorkoutDetailScreen} />
     </Stack.Navigator>
   );
 }
