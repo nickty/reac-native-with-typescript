@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { NativeStackHeaderProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 
-const WorkoutDetailScreen = () => {
+const WorkoutDetailScreen = ({ navigation, route }: NativeStackHeaderProps) => {
   return (
     <View>
-      <Text>WorkoutDetailScreen</Text>
+      <Text> Slug - {(route.params as any).slug}</Text>
     </View>
   );
 };

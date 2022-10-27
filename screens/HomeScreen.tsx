@@ -15,7 +15,13 @@ const HomeScreen = ({ navigation }: NativeStackHeaderProps) => {
       <FlatList
         data={data as Workout[]}
         renderItem={({ item }) => (
-          <Pressable onPress={() => navigation.navigate("WorkoutDetail")}>
+          <Pressable
+            onPress={() =>
+              navigation.navigate("WorkoutDetail", {
+                slug: item.slug,
+              })
+            }
+          >
             <WorkoutItem item={item} />
           </Pressable>
         )}
