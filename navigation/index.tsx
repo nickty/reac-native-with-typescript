@@ -29,7 +29,13 @@ function RootNavigator() {
         name="Root"
         component={BottomTabNavigator}
       />
-      <Stack.Screen name="WorkoutDetail" component={WorkoutDetailScreen} />
+      <Stack.Screen
+        options={{
+          title: "",
+        }}
+        name="WorkoutDetail"
+        component={WorkoutDetailScreen}
+      />
     </Stack.Navigator>
   );
 }
