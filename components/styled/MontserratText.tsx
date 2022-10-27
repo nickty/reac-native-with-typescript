@@ -1,8 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { Children } from "react";
 
-const MontserratText = ({ children }: any) => {
-  return <Text style={{ fontFamily: "montserrat" }}>{children}</Text>;
+const MontserratText = ({ children, style }: any) => {
+  return (
+    <Text style={[{ fontFamily: "montserrat" }, style]} children={children} />
+  );
 };
 
 export default MontserratText;

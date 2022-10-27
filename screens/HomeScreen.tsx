@@ -11,7 +11,7 @@ const HomeScreen = ({ navigation }: NativeStackHeaderProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Home Screen</Text>
-      <MontserratText>tetsdlkfjsdl</MontserratText>
+      <MontserratText style={{ fontSize: 30 }}>tetsdlkfjsdl</MontserratText>
       <FlatList
         data={data as Workout[]}
         renderItem={({ item }) => <WorkoutItem item={item} />}
