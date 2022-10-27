@@ -1,4 +1,5 @@
 import {
+  Modal,
   Pressable,
   PressableProps,
   StyleSheet,
@@ -11,6 +12,9 @@ const PressableText = (props: PressableProps & { text: string }) => {
   return (
     <Pressable {...props}>
       <Text style={{ textDecorationLine: "underline" }}>{props.text}</Text>
+      <Modal visible={false} transparent={true} animationType="fade">
+        <Text>Hello</Text>
+      </Modal>
     </Pressable>
   );
 };
