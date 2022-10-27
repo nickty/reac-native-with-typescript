@@ -1,4 +1,4 @@
-import { containsKey, getData, storeData } from ".";
+import { containsKey, getData, removeItem, storeData } from ".";
 import data from "../data.json";
 import { Workout } from "../types/data";
 
@@ -15,4 +15,8 @@ export const initWorkout = async () => {
   }
 
   return false;
+};
+
+export const clearWorkouts = async () => {
+  await removeItem("workout-data");
 };
