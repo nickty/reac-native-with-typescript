@@ -1,19 +1,30 @@
 import { View, Text, StyleSheet, FlatList, Pressable } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack";
 
 import data from "../data.json";
 import { Workout } from "../types/data";
 import WorkoutItem from "../components/WorkoutItem";
 import MontserratText from "../components/styled/MontserratText";
+import { getWorkouts } from "../storage/workout";
 
 const HomeScreen = ({ navigation }: NativeStackHeaderProps) => {
+  const [workouts, setWorkouts] = useState<Workout[]>([]);
+
+  useEffect(() => {
+    async function getData() {
+      const _workouts = await getWorkouts();
+      setWorkouts(_workouts);
+    }
+    getData();
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Home Screen</Text>
       {/* <MontserratText style={{ fontSize: 30 }}>tetsdlkfjsdl</MontserratText> */}
       <FlatList
-        data={data as Workout[]}
+        data={workouts}
         renderItem={({ item }) => (
           <Pressable
             onPress={() =>
