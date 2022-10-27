@@ -27,13 +27,21 @@ const WorkoutDetailScreen = ({ navigation, route }: Navigation) => {
         transparent={false}
         animationType="slide"
       >
-        <Text>Hello</Text>
+        <View style={styles.centerView}>
+          <Text>Hello</Text>
+          <PressableText text="Close" onPress={() => setModalVisible(false)} />
+        </View>
       </Modal>
-      <PressableText text="Close" onPress={() => setModalVisible(false)} />
     </View>
   );
 };
 
 export default WorkoutDetailScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  centerView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
